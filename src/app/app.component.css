@@ -1,0 +1,47 @@
+mat-form-field {
+    width: 100%;
+  }
+
+  .tab-button-toggle-label {
+    display: inline-block;
+    margin: 16px;
+  }
+  
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+  
+  .btn-primary-spacing 
+{
+margin-right: 5px;
+margin-bottom: 5px !important;
+}
+
+.header {  
+  margin-top: 100px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.html-header {
+  margin: 15px 0 5px;
+}
+
+.html {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.5rem;
+  background-color: #f1f1f1;
+  min-height: 20px;
+  max-height: 10rem;
+  overflow: auto;
+}

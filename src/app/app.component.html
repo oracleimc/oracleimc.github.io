@@ -1,20 +1,160 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<mat-toolbar class="md-medium-tall" color="warn">
+  <div class="mat-toolbar-tools">
+    <span layout-align="center center"> Oracle CCOE Cloud Solution Tool</span>
+    <span flex></span>
+  </div>
+</mat-toolbar>
 
+
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Partner information</ng-template>
+      <mat-form-field>
+        <mat-label>Partner Company Name</mat-label>
+        <input matInput formControlName="companyName" required>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Oracle Partner Network ID</mat-label>
+        <input matInput formControlName="partnerID" required>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <mat-label>Type</mat-label>
+              <mat-select formControlName="type" required>
+                <mat-option></mat-option>
+                <mat-option *ngFor="let typevalue of typesoptions" [value]="typevalue.type">{{typevalue.display_value}}
+                </mat-option>
+              </mat-select>
+              <mat-error>This field is required</mat-error>
+            </mat-form-field>
+          </td>
+
+          <td>
+            <mat-form-field class="example-full-width">
+              <mat-label>Target Persona</mat-label>
+              <mat-select formControlName="targetPersona" required>
+                <mat-option> </mat-option>
+                <mat-option *ngFor="let targetpersona of targetpersonas" [value]="targetpersona.persona">
+                  {{targetpersona.display_value}}</mat-option>
+              </mat-select>
+              <mat-error>This field is required</mat-error>
+            </mat-form-field>
+          </td>
+
+        </tr>
+      </table>
+      <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" required>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <h5 class="html-header">Overview/Features *</h5>
+      <angular-editor textarea matInput id="editor1" placeholder="Overview/Features" formControlName="overview"
+        [config]="config"></angular-editor>
+
+
+      <h5 class="html-header">Elevator Pitch *</h5>
+      <angular-editor textarea matInput id="editor2" placeholder="Elevator Pitch" formControlName="elevatorPitch"
+        [config]="config"></angular-editor>
+      <div>
+        <h5 class="html-header">Pain Points *</h5>
+        <angular-editor textarea matInput id="editor3" placeholder="Pain Points" formControlName="painpoints"
+          [config]="config"></angular-editor>
+
+      </div>
+      <div>
+        <h5 class="html-header">Key Messages *</h5>
+        <angular-editor textarea matInput id="editor4" placeholder="Key Messages" formControlName="keymessages"
+          [config]="config"></angular-editor>
+
+      </div>
+      <div>
+        <h5 class="html-header">Resources *</h5>
+        <angular-editor textarea matInput id="editor5" placeholder="Resources" formControlName="resources"
+          [config]="config"></angular-editor>
+
+      </div>
+      <!--mat-form-field class="example-full-width">
+        <textarea matInput formControlName="resources" placeholder="Resources" required></textarea>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>-->
+
+
+      <mat-form-field class="example-full-width">
+        <input matInput formControlName="salesContact" placeholder="Partner Sales Contact" required>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Industries</mat-label>
+        <mat-select formControlName="industries" multiple>
+          <mat-option *ngFor="let ind of industries" [value]="ind.id">{{ind.industry}}</mat-option>
+        </mat-select>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Products</mat-label>
+        <mat-select formControlName="products" multiple>
+          <mat-option *ngFor="let product of products" [value]="product.id">{{product.product_name}}</mat-option>
+        </mat-select>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Tags</mat-label>
+        <mat-select formControlName="tags" multiple>
+          <mat-option *ngFor="let tagsvalue of tagoptions" [value]="tagsvalue.id">{{tagsvalue.tag_name}}</mat-option>
+        </mat-select>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Markets</mat-label>
+        <mat-select formControlName="markets" required>
+          <mat-option *ngFor="let market of markets" [value]="market.market_id">{{market.market_name}}</mat-option>
+        </mat-select>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <div>
+        <h5 class="html-header">References *</h5>
+        <angular-editor textarea matInput id="editor6" placeholder="References" formControlName="references"
+          [config]="config"></angular-editor>
+      </div>
+
+      <mat-form-field>
+        <mat-label>Logo url</mat-label>
+        <input matInput formControlName="logourl" required>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <div>
+
+      </div>
+
+      <div>
+
+        <!--button class="btn-primary-spacing" mat-raised-button matStepperNext color='warn'>Next</button-->
+        <button class="btn-primary-spacing" [disabled]="firstFormGroup.invalid"mat-raised-button (click)="sendToJSON()" color='warn'>Submit</button>
+      </div>
+    </form>
+
+  </mat-step>
+
+  <!-->mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Summary </ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Email" formControlName="email" required>
+        </mat-form-field>
+        <div>
+          <button class="btn-primary-spacing" mat-raised-button matStepperPrevious color='warn'>Back</button>
+
+          <button class="btn-primary-spacing" mat-raised-button (click)="sendToJSON()" color='warn'>Submit</button>
+  
+        </div>
+      </form>
+    </mat-step -->
+
+</mat-horizontal-stepper>
