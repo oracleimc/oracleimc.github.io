@@ -102,6 +102,9 @@ THE SOFTWARE.
 @angular/platform-browser
 MIT
 
+@kolkov/angular-editor
+MIT
+
 angular-dual-listbox
 MIT
 The MIT License (MIT)
