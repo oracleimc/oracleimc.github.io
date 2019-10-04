@@ -25,10 +25,10 @@
         <tr>
           <td>
             <mat-form-field class="example-full-width">
+              <mat-hint>Solution: pre-packaged, repeatable offering<br/>Service:typically implementation servcises<br/>ISV SaaS: ISV solution which is available to custmers as SaaS hosted on Oracle Cloud.</mat-hint>
               <mat-label>Type</mat-label>
               <mat-select formControlName="type" required>
-                <mat-option></mat-option>
-                <mat-option *ngFor="let typevalue of typesoptions" [value]="typevalue.type">{{typevalue.display_value}}
+                <mat-option *ngFor="let typevalue of typesoptions" [value]="typevalue.type" matTooltip = "Sample Tooltip">{{typevalue.display_value}}
                 </mat-option>
               </mat-select>
               <mat-error>This field is required</mat-error>
@@ -37,9 +37,11 @@
 
           <td>
             <mat-form-field class="example-full-width">
+              <mat-hint>Business: soluion is solving a business problem<br>IT:solution is solving an IT problem</mat-hint>
+
               <mat-label>Target Persona</mat-label>
               <mat-select formControlName="targetPersona" required>
-                <mat-option> </mat-option>
+
                 <mat-option *ngFor="let targetpersona of targetpersonas" [value]="targetpersona.persona">
                   {{targetpersona.display_value}}</mat-option>
               </mat-select>
@@ -49,48 +51,75 @@
 
         </tr>
       </table>
+      <br><br>
       <mat-form-field>
+        <mat-hint>Privide a short, clear title which will catch attention among other solutions</mat-hint>
         <mat-label>Title</mat-label>
         <input matInput formControlName="title" required>
         <mat-error>This field is required</mat-error>
       </mat-form-field>
+      <br><br>
+      <mat-form-field class="example-full-width">
+        <mat-hint>Sales contacts on your side, with emails, phone numbers etc.</mat-hint>
+          <input matInput formControlName="salesContact" placeholder="Partner Sales Contact" required>
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+
+      <br><br><br><br>
+      <div>The fields below will help our teams understand and position your solution to our customers. The fields will be presented in a form of battlecard.
+        YOu can find some example battlecards at <a href='salescentral.oracle.com'>salescentral.oracle.com</a>, for example, battlecard for <a href='https://salescentral.oracle.com/SCPortal/index.html?root=scasset%2F103079%2FBATTLE_CARD'>Oracle Apps on OCI</a>
+      </div>
+
       <h5 class="html-header">Overview/Features *</h5>
       <angular-editor textarea matInput id="editor1" placeholder="Overview/Features" formControlName="overview"
-        [config]="config"></angular-editor>
+        [config]="config" placeholder="Provide a short summary of the solution, what does it do, who is it for"></angular-editor>
 
 
       <h5 class="html-header">Elevator Pitch *</h5>
-      <angular-editor textarea matInput id="editor2" placeholder="Elevator Pitch" formControlName="elevatorPitch"
+      <angular-editor textarea matInput id="editor2" formControlName="elevatorPitch"
+      placeholder="If Oracle Sales Rep has 1 minute to position your solution or service to a prospect, what should they say?"
         [config]="config"></angular-editor>
       <div>
-        <h5 class="html-header">Pain Points *</h5>
-        <angular-editor textarea matInput id="editor3" placeholder="Pain Points" formControlName="painpoints"
+        <h5 class="html-header">Positioning *</h5>
+        <angular-editor textarea matInput id="editor3" formControlName="painpoints"
+        placeholder="For each persona that the solution solves a problem or creates a business value, provide a bullet list of business value solution creates and/or pain points the solution addresses. For example, if the solution is creating value for CFO, enter CFO followed by bullet list of pain points. Do that for each persona to which the solution applies."
           [config]="config"></angular-editor>
-
       </div>
       <div>
+          <h5 class="html-header">References *</h5>
+          <angular-editor textarea matInput id="editor6" placeholder="Provide list of customers already using this solution" formControlName="references"
+            [config]="config"></angular-editor>
+      </div>
+      <!--<div>
         <h5 class="html-header">Key Messages *</h5>
         <angular-editor textarea matInput id="editor4" placeholder="Key Messages" formControlName="keymessages"
           [config]="config"></angular-editor>
 
-      </div>
+      </div>-->
       <div>
-        <h5 class="html-header">Resources *</h5>
-        <angular-editor textarea matInput id="editor5" placeholder="Resources" formControlName="resources"
+        <h5 class="html-header">Collaterals *</h5>
+        <angular-editor textarea matInput id="editor5" formControlName="resources"
+        placeholder="Provide links to collaterals such as solution web page, presentations, videos etc. All collaterals must be accessible through an URL. In this box, provide links to collaterals."
           [config]="config"></angular-editor>
 
       </div>
+
+      <div>
+          <h5 class="html-header">Technical documentation / contacts *</h5>
+          <angular-editor textarea matInput id="editor6" formControlName="architecture"
+          placeholder="Provide links to collaterals such as high level architecture from which it's clear how and which Oracle Cloud services are used by your solution. Please also provide tecnical contacts our team should contact to clarify any potential technical questions."
+            [config]="config"></angular-editor>
+
+        </div>
       <!--mat-form-field class="example-full-width">
         <textarea matInput formControlName="resources" placeholder="Resources" required></textarea>
         <mat-error>This field is required</mat-error>
       </mat-form-field>-->
 
 
-      <mat-form-field class="example-full-width">
-        <input matInput formControlName="salesContact" placeholder="Partner Sales Contact" required>
-        <mat-error>This field is required</mat-error>
-      </mat-form-field>
+
       <mat-form-field>
+        <mat-hint>Select all industries to which the solution applies.</mat-hint>
         <mat-label>Industries</mat-label>
         <mat-select formControlName="industries" multiple>
           <mat-option *ngFor="let ind of industries" [value]="ind.id">{{ind.industry}}</mat-option>
@@ -98,33 +127,26 @@
         <mat-error>This field is required</mat-error>
       </mat-form-field>
       <mat-form-field>
+        <mat-hint>Select all Oracle Cloud products which this solution is using. Technical documentation must clarify how thsese products are being used. </mat-hint>
         <mat-label>Products</mat-label>
         <mat-select formControlName="products" multiple>
           <mat-option *ngFor="let product of products" [value]="product.id">{{product.product_name}}</mat-option>
         </mat-select>
         <mat-error>This field is required</mat-error>
       </mat-form-field>
+
       <mat-form-field>
-        <mat-label>Tags</mat-label>
-        <mat-select formControlName="tags" multiple>
-          <mat-option *ngFor="let tagsvalue of tagoptions" [value]="tagsvalue.id">{{tagsvalue.tag_name}}</mat-option>
-        </mat-select>
-        <mat-error>This field is required</mat-error>
-      </mat-form-field>
-      <mat-form-field>
+          <mat-hint>Select all geographies where this solution is available. </mat-hint>
         <mat-label>Markets</mat-label>
         <mat-select formControlName="markets" required>
           <mat-option *ngFor="let market of markets" [value]="market.market_id">{{market.market_name}}</mat-option>
         </mat-select>
         <mat-error>This field is required</mat-error>
       </mat-form-field>
-      <div>
-        <h5 class="html-header">References *</h5>
-        <angular-editor textarea matInput id="editor6" placeholder="References" formControlName="references"
-          [config]="config"></angular-editor>
-      </div>
+
 
       <mat-form-field>
+          <mat-hint>Prodide a URL to your company logo or solution logo</mat-hint>
         <mat-label>Logo url</mat-label>
         <input matInput formControlName="logourl" required>
         <mat-error>This field is required</mat-error>
@@ -133,6 +155,8 @@
 
       </div>
 
+      <br><br>
+    <div>Plase save this form in a file by clicking on the button below, then send the file to your Oracle Partner Account Manager through email. </div>
       <div>
 
         <!--button class="btn-primary-spacing" mat-raised-button matStepperNext color='warn'>Next</button-->
@@ -152,7 +176,7 @@
           <button class="btn-primary-spacing" mat-raised-button matStepperPrevious color='warn'>Back</button>
 
           <button class="btn-primary-spacing" mat-raised-button (click)="sendToJSON()" color='warn'>Submit</button>
-  
+
         </div>
       </form>
     </mat-step -->

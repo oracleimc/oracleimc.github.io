@@ -31,14 +31,6 @@ export class AppComponent implements OnInit {
         {
             type: 'ISV SaaS',
             display_value: 'ISV SaaS'
-        },
-        {
-            type: 'CSM Go-Live',
-            display_value: 'CSM Go-Live'
-        },
-        {
-            type: 'POC',
-            display_value: 'POC'
         }
     ];
 
@@ -459,15 +451,16 @@ export class AppComponent implements OnInit {
             overview: ['', Validators.required],
             elevatorPitch: ['', Validators.required],
             painpoints: ['', Validators.required],
-            keymessages: ['', Validators.required],
+            //keymessages: ['', Validators.required],
             resources: ['', Validators.required],
             salesContact: ['', Validators.required],
             industries: ['', Validators.required],
             products: ['', Validators.required],
-            tags: ['', Validators.required],
+            //tags: ['', Validators.required],
             markets: ['', Validators.required],
             references: ['', Validators.required],
-            logourl: ['', Validators.required]
+            logourl: ['', Validators.required],
+            architecture: ['', Validators.required]
 
         });
 
@@ -503,13 +496,21 @@ export class AppComponent implements OnInit {
 
 
     sendToJSON() {
-        
+
         const resource = JSON.stringify(this.firstFormGroup.value);
         console.log('Submit Button clicked: ' + resource);
-        this.mailMe(resource);
-
+        //this.mailMe(resource);
+        this.download(resource,"solution.json",'text/plain');
 
     }
+
+    download(content, fileName, contentType) {
+      var a = document.createElement("a");
+      var file = new Blob([content], {type: contentType});
+      a.href = URL.createObjectURL(file);
+      a.download = fileName;
+      a.click();
+  }
 
     mailMe(res) {
         this.mailText = 'mailto:jernej.kase@oracle.com?subject=JSONfiles&body=' + res;
