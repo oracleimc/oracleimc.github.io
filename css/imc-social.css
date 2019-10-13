@@ -36,6 +36,8 @@ body {
   font-family: "Lato", Arial, sans-serif;
   text-align: center;
   padding-top: 30px;
+  background:url(https://login.oracle.com/oaam_server/client/oam/images/sso-f17v2-bgimg.jpg) top right no-repeat; 
+  background-attachment:fixed;
 }
 
 h1 {
