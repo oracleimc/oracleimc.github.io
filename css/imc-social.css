@@ -8,6 +8,13 @@
     opacity: 1;
   }
 }
+html { 
+  background: url(https://login.oracle.com/oaam_server/client/oam/images/sso-f17v2-bgimg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 @-moz-keyframes fadeInRight {
   0% {
     opacity: 0;
@@ -32,11 +39,10 @@
 }
 /* General styles */
 body {
-/*  background-color: white; */
+  background-color: white;
   font-family: "Lato", Arial, sans-serif;
   text-align: center;
   padding-top: 30px;
-  background:url(https://login.oracle.com/oaam_server/client/oam/images/sso-f17v2-bgimg.jpg) top right no-repeat; 
   background-attachment:fixed;
 }
 
