@@ -1,86 +1,165 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="labGuide" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="labGuide" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="labGuide" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="labGuide" class="no-js"> <!--<![endif]-->
-<!-- comment -->
+<html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Partner IMC Workshops</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-aria.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-messages.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-  <script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
-  <script src='https://cdn.rawgit.com/showdownjs/showdown/1.6.2/dist/showdown.min.js'></script>
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-  <link type="text/css" rel="stylesheet" href="https://oracle.github.io/learning-library/workshops/common-content/css/solutionEngTemplate.css">
-  <link type="text/css" rel="stylesheet" href="https://oracle.github.io/learning-library/workshops/common-content/css/workshop.css">
-  <link type="text/css" rel="stylesheet" href="https://oracle.github.io/learning-library/workshops/common-content/css/default-theme.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	
-
-<!--    IF MAKING LOCAL CHANGES ONLY -->
-  <!-- <link type="text/css" rel="stylesheet" href="./css/solutionEngTemplate.css">
-  <link type="text/css" rel="stylesheet" href="./css/workshop.css">
-  <link type="text/css" rel="stylesheet" href="./css/default-theme.css">
-  <link type="text/css" rel="stylesheet" href="./css/touch-the-cloud-theme.css"> -->
-  
-  <link type="text/css" rel="stylesheet" href="./css/imc-social.css">
-  <link rel="shortcut icon" href="https://oracle.github.io/learning-library/workshops/common-content/fav.ico" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title>Ora.Start </title>
+  <!-- CSS  -->
+  <link rel="icon" type="image/png" href="img/favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-rss/4.3.0/jquery.rss.min.js"></script>
+  <script src="js/init.js"></script>
 
 </head>
-<body ng-cloak ng-controller="labGuideController" md-theme="{{theme}}" class="{{theme}}" layout="column">
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/zFpHQG84wzU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	
-	
-<div class="social">
+<body>
+  <main>
+    <div class="container">
+		<div class="col-sm-4">
+		<h1>Startpage</h1>
+		<div>
+		<div class="col-sm-4 hidden-xs">
 
-  <a class="social-icon" data-tooltip="oracleimc" href="mailto:oracle.imc@beehiveonline.oracle.com">
-    <i class="fa fa-envelope" aria-hidden="true"></i>
-  </a>
+        </div>
+		<div class="Panel" id='SearchBars'>
+<script async src="https://cse.google.com/cse.js?cx=002101683405692130004:pc01lxgynn9"></script>
+			<form class='tile searchBar' method="get" action="https://www.encrypted.google.com/search" target="_blank">
 
-  <a class="social-icon" data-tooltip="GitHub" href="https://github.com/oracleimc">
-    <i class="fa fa-github" aria-hidden="true"></i>
-  </a>
+			</form>
+<div class="gcse-searchbox-only"></div>
+		</div>
+    <br>
+<div class="RSS" id='FeedContent'>
 
-  <a class="social-icon" data-tooltip="Twitter" href="https://twitter.com/oracleimc">
-    <i class="fa fa-twitter" aria-hidden="true"></i>
-  </a>
-	
-  <a class="social-icon" data-tooltip="LinkedIn" href="https://www.linkedin.com/groups/4535240/">
-    <i class="fa fa-linkedin" aria-hidden="true"></i>
-  </a>
+      <div class="row">
+        <div class="col s12 m6 l3">
+          <h2 class="center">Cloud</h2>
+          <span>
+            <a target="_parent" href="http://oracle.com/cloud">Cloud Infrastructure</a>
+          </span>
+          <span>
+            <a target="_parent" href="http://oracle.com/applications">Cloud Applications</a>
+          </span>
+          <span>
+            <a target="_parent" href="https://cloudmarketplace.oracle.com/marketplace/en_US/homePage.jspx">Cloud Marketplace</a>
+          </span>
+          <span>
+            <a target="_parent" href="https://www.oracle.com/industries/public-sector/federal/">Government Cloud</a>
+          </span>
+          <span>
+            <a target="_parent" href="https://www.oracle.com/industries/">Industry Applications</a>
+          </span>
+        </div>
+
+        <div class="col s12 m6 l3">
+          <h2 class="center">On-Premise</h2>
+          <span>
+            <a target="_parent" href="https://www.oracle.com/database/technologies/" class="collection-item">Database</a>
+          </span>
+          <span>
+            <a target="_parent" href="https://oracle.com/java" class="collection-item">Java</a>
+          </span>
+          <span>
+            <a target="_parent" href="https://www.oracle.com/products/software.html" class="collection-item">Software</a>
+          </span>
+          <span>
+            <a target="_parent" href="https://www.oracle.com/it-infrastructure/" class="collection-item">Hardware</a>
+          </span>
+          <span>
+            <a target="_parent" href="https://www.oracle.com/applications/on-premise-products/" class="collection-item">Applications</a>
+          </span>
+          <span>
+            <a target="_parent" href="https://drive.google.com/keep" class="collection-item">Keep</a>
+          </span>
+        </div>
+
+        <div class="col s12 m6 l3">
+          <h2 class="center">Resources</h2>
+          <span>
+            <a target="_parent" href="https://developer.oracle.com/" class="collection-item">Developers</a>
+          </span>
+          <span>
+            <a target="_parent" href="https://www.oracle.com/education/" class="collection-item">Education</a>
+          </span>
+          <span>
+            <a target="_parent" href="https://www.oracle.com/startup/" class="collection-item">Startups</a>
+          </span>
+          <span>
+            <a target="_parent" href="https://www.oracle.com/partnernetwork/" class="collection-item">Partner Network</a>
+          </span>
+	  <span>
+            <a target="_parent" href="https://www.oracle.com/downloads/" class="collection-item">Downloads</a>
+          </span>
+	  <span>
+            <a target="_parent" href="https://academy.oracle.com/en/oa-web-overview.html" class="collection-item">Student & Educators</a>
+          </span>
+        </div>
+
+        <div class="col s12 m6 l3">
+          <h2 class="center">Social</h2>
+          <span>
+            <a target="_parent" href="http://www.oracle.com/us/social-media/facebook/" class="collection-item">Facebook</a>
+          </span>
+          <span>
+            <a target="_parent" href="http://www.oracle.com/us/social-media/linkedin/index.html" class="collection-item">LinkedIn</a>
+          </span>
+          <span>
+            <a target="_parent" href="http://www.oracle.com/us/social-media/twitter" class="collection-item">Twitter</a>
+          </span>
+          <span>
+            <a target="_parent" href="http://www.youtube.com/oracle/" class="collection-item">Youtube</a>
+          </span>
+          <span>
+            <a target="_parent" href="https://github.com/oracle" class="collection-item">Github</a>
+          </span>
+        </div>
+
+      </div>
+
+      <br>
+      <br>
 
 
-  <a class="social-icon" data-tooltip="Facebook" href="https://www.facebook.com/oracleimc">
-    <i class="fa fa-facebook" aria-hidden="true"></i>
-  </a>
+      <div class="row">
+        <div class="col s12 m4">
+          <h6 class="center">
+            <a href="https://www.oracle.com/corporate/pressrelease/">Oracle Press Releases</a>
+          </h6>
+          <div id="rss-corporate" class="transbox"></div>
+        </div>
+        <div class="col s12 m4">
+          <h6 class="center">
+            <a href="http://blogs.oracle.com/">Oracle Blogs</a>
+          </h6>
+          <div id="rss-blogs" class="transbox"></div>
+        </div>
+        <div class="col s12 m4">
+          <h6 class="center">
+            <a href="https://blogs.oracle.com/oraclemagazine/">Oracle Customers</a>
+          </h6>
+          <div id="rss-customers" class="transbox"></div>
+        </div>
+      </div>
+    </div>
 
-  <a class="social-icon" data-tooltip="Slideshare" href="https://www.slideshare.net/oracle_imc_team">
-    <i class="fa fa-slideshare" aria-hidden="true"></i>
-  </a>
-	
-  <a class="social-icon" data-tooltip="flickr" href="https://www.flickr.com/oracleimc">
-    <i class="fa fa-flickr" aria-hidden="true"></i>
-  </a>
-	
-	  <a class="social-icon" data-tooltip="Slideshare" href="https://medium.com/@oracleimc">
-    <i class="fa fa-medium" aria-hidden="true"></i>
-  </a>
-  <a class="social-icon" data-tooltip="YouTube" href="https://youtube.com/oracleimc">
-    <i class="fa fa-youtube" aria-hidden="true"></i>
-  </a>
-  <hr>
-OracleIMC @ http://blogs.oracle.com/imc
-</div>
+
+  </main>
+
+  <footer class="page-footer grey darken-4">
+    <div class="footer-copyright">
+      <div class="container">
+<a data-lbl="copyright" href="http://oracle.com/legal/copyright.html" class="">© 2020 Oracle</a> - <a data-lbl="site-map" href="http://oracle.com/sitemap.html" id="u10footer1" aria-owns="u10footer2" class="">Oracle Site Map</a>
+      </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 </body>
+
 </html>
