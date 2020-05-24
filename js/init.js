@@ -1,6 +1,7 @@
 jQuery(function ($) {
-  $("#rss-corporate").rss("https://www.oracle.com/corporate/press/rss/rss-pr.xml", {
-    limit: 5
+  $("#rss-corporate").rss("https://www.oracle.com/corporate/press/rss/rss-pr.xml", 
+	{
+    entryTemplate:'<li><a href="{url}">[{author}@{date}] {title}</a><br/></li>, limit: 5
   })
 })
 
